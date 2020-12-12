@@ -33,7 +33,7 @@ client.on('message', msg => {
   cron.schedule('*/29 * * * *', () => {
     testChannel.send('');
   });
-  
+
   if (msg.content.includes('https://soundcloud.com')){
 
     //Extract Sdcld link from msg
@@ -41,9 +41,14 @@ client.on('message', msg => {
     const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
 
     //Update sheet
-    const sheet = doc.sheetsByIndex[0];
-    const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
-    addRow();
+    try{
+
+      const sheet = doc.sheetsByIndex[0];
+      const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
+      addRow();
+    } catch (err){
+      msg.send(err)
+    }
   }
 })
 
