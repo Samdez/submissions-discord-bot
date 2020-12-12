@@ -41,14 +41,10 @@ client.on('message', msg => {
     const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
 
     //Update sheet
-    try{
-
-      const sheet = doc.sheetsByIndex[0];
-      const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
-      addRow();
-    } catch (err){
-      testChannel.send(err)
-    }
+    const sheet = doc.sheetsByIndex[0];
+    const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
+    addRow();
+    msg.send('test')
   }
 })
 
