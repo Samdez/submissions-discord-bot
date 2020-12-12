@@ -34,6 +34,7 @@ client.on('message', msg => {
     testChannel.send('');
   });
 
+  testChannel.send('test')
   if (msg.content.includes('https://soundcloud.com')){
 
     //Extract Sdcld link from msg
@@ -44,7 +45,6 @@ client.on('message', msg => {
     const sheet = doc.sheetsByIndex[0];
     const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
     addRow();
-    testChannel.send('test')
   }
 })
 
