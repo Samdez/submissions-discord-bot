@@ -34,17 +34,17 @@ client.on('message', msg => {
     testChannel.send('');
   });
 
-  testChannel.send('test')
   if (msg.content.includes('https://soundcloud.com')){
-
+    
     //Extract Sdcld link from msg
     const trackLink = msg.content.split(/[\s]+/);
     const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
-
+    
     //Update sheet
     const sheet = doc.sheetsByIndex[0];
     const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
     addRow();
+    testChannel.send('test')
   }
 })
 
