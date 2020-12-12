@@ -44,7 +44,7 @@ client.on('message', msg => {
     const sheet = doc.sheetsByIndex[0];
     const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
     addRow();
-    msg.send('test')
+    testChannel.send('test')
   }
 })
 
