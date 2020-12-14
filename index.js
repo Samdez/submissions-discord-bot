@@ -38,8 +38,8 @@ client.on('message', msg => {
     msg.reply('test')
     
     // Extract Sdcld link from msg
-    // const trackLink = msg.content.split(/[\s]+/);
-    // const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
+    const trackLink = msg.content.split(/[\s]+/);
+    const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
     
     // //Update sheet
     // const sheet = doc.sheetsByIndex[0];
