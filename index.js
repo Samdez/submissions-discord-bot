@@ -17,6 +17,7 @@ const authenticate = async () => {
   });
   
   await doc.loadInfo();
+  console.log('auth OK')
 };
 
 // BOT IS ON
@@ -42,7 +43,7 @@ client.on('message', msg => {
     const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
     
     // //Update sheet
-    doc.loadInfo();
+    await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
     // const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
     // addRow();
