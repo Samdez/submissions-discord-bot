@@ -38,13 +38,13 @@ client.on('message', msg => {
     msg.reply('test')
     
     // Extract Sdcld link from msg
-    const trackLink = msg.content.split(/[\s]+/);
-    const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
+    // const trackLink = msg.content.split(/[\s]+/);
+    // const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
     
-    //Update sheet
-    const sheet = doc.sheetsByIndex[0];
-    const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
-    addRow();
+    // //Update sheet
+    // const sheet = doc.sheetsByIndex[0];
+    // const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
+    // addRow();
   }
 })
 
