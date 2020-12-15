@@ -36,17 +36,22 @@ client.on('message', msg => {
   });
 
   if (msg.content.includes('https://soundcloud.com')){
-    msg.reply('test')
+    
     
     // Extract Sdcld link from msg
     const trackLink = msg.content.split(/[\s]+/);
     const url = trackLink.filter(word => word.startsWith('https://soundcloud'));
     
     // //Update sheet
-    await doc.loadInfo();
-    const sheet = doc.sheetsByIndex[0];
-    // const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
-    // addRow();
+    const updateSheet = async () => {
+      msg.reply('test')
+      await authenticate();
+      await doc.loadInfo();
+      const sheet = doc.sheetsByIndex[0];
+      const addRow = () => sheet.addRow({Name: msg.author.username, Soundcloud: String(url[0])});
+      addRow();
+    }
+    updateSheet();
   }
 })
 
